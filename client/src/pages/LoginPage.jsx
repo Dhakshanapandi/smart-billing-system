@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../interceptors/api";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -14,11 +14,14 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login/", {
+      console.log("before");
+      
+      const res = await api.post("https://smart-billing-system.onrender.com/api/auth/login/", {
         email,
         password,
       });
-
+     console.log("after");
+     
       dispatch(
         loginSuccess({ token: res.data.token, role: res.data.role, name: res.data.name })
       );

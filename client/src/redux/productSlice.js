@@ -7,7 +7,9 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await api.get("http://localhost:5000/api/products/");
+      const res = await api.get(
+        "https://smart-billing-system.onrender.com/api/products/"
+      );
       return res.data;
     } catch (err) {
       return rejectWithValue(
@@ -23,7 +25,7 @@ export const addProduct = createAsyncThunk(
   async (productData, { rejectWithValue }) => {
     try {
       const res = await api.post(
-        "http://localhost:5000/api/products/new-product/",
+        "https://smart-billing-system.onrender.com/api/products/new-product/",
         productData
       );
       return res.data;
@@ -41,7 +43,7 @@ export const editProduct = createAsyncThunk(
   async ({ id, data }, { rejectWithValue }) => {
     try {
       const res = await api.put(
-        `http://localhost:5000/api/products/${id}`,
+        `https://smart-billing-system.onrender.com/api/products/${id}`,
         data
       );
       return res.data;
@@ -58,7 +60,9 @@ export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (id, { rejectWithValue }) => {
     try {
-      await api.delete(`http://localhost:5000/api/products/${id}`);
+      await api.delete(
+        `https://smart-billing-system.onrender.com/api/products/${id}`
+      );
       return id;
     } catch (err) {
       return rejectWithValue(

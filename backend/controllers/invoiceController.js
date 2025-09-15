@@ -55,7 +55,8 @@ export const createInvoice = async (req, res) => {
 // list invoices - staff sees own, admin sees all
 export const listInvoices = async (req, res) => {
   try {
-     
+    console.log("listing invoices ");
+
     if (req.user.role === "admin") {
       const all = await Invoice.find()
         .populate("staffId", "name email")

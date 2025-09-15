@@ -65,6 +65,7 @@ export const editStaff = async (req, res) => {
 export const deleteStaff = async (req, res) => {
   try {
     const { id } = req.params;
+    console.log("called", id);
 
     const staff = await User.findById(id);
     if (!staff) return res.status(404).json({ message: "Staff not found" });

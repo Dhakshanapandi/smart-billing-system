@@ -7,7 +7,9 @@ export const fetchInvoices = createAsyncThunk(
   "invoices/fetch",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await api.get("http://localhost:5000/api/invoices/list");
+      const res = await api.get(
+        "https://smart-billing-system.onrender.com/api/invoices/list"
+      );
       return res.data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || err.message);
@@ -21,7 +23,7 @@ export const createInvoice = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const res = await api.post(
-        "http://localhost:5000/api/invoices/create-invoice",
+        "https://smart-billing-system.onrender.com/api/invoices/create-invoice",
         payload
       );
       return res.data;

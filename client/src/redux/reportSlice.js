@@ -8,7 +8,7 @@ export const fetchDailyReport = createAsyncThunk(
   async (date, { rejectWithValue }) => {
     try {
       const res = await api.get(
-        `http://localhost:5000/api/reports/daily?date=${date}`
+        `https://smart-billing-system.onrender.com/api/reports/daily?date=${date}`
       );
       return res.data;
     } catch (err) {
@@ -23,7 +23,7 @@ export const fetchRangeReport = createAsyncThunk(
   async ({ from, to }, { rejectWithValue }) => {
     try {
       const res = await api.get(
-        `http://localhost:5000/api/reports/range?from=${from}&to=${to}`
+        `https://smart-billing-system.onrender.com/api/reports/range?from=${from}&to=${to}`
       );
       return res.data;
     } catch (err) {

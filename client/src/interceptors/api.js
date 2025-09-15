@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create an axios instance
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://smart-billing-system.onrender.com/api",
 });
 
 // Request interceptor to attach token

@@ -4,7 +4,9 @@ import api from "../interceptors/api.js";
 
 // Async thunk to fetch staff
 export const fetchStaff = createAsyncThunk("staff/fetchStaff", async () => {
-  const res = await api.get("http://localhost:5000/api/staff/get-staff");
+  const res = await api.get(
+    "https://smart-billing-system.onrender.com/api/staff/get-staff"
+  );
   console.log(res);
 
   return res.data;
@@ -15,7 +17,7 @@ export const addStaff = createAsyncThunk(
   "staff/addStaff",
   async (staffData) => {
     const res = await api.post(
-      "http://localhost:5000/api/staff/staff-create/",
+      "https://smart-billing-system.onrender.com/api/staff/staff-create/",
       staffData
     );
     return res.data;
@@ -27,7 +29,7 @@ export const editStaff = createAsyncThunk(
   "staff/editStaff",
   async ({ id, data }) => {
     const res = await api.put(
-      `http://localhost:5000/api/staff/edit-staff/${id}`,
+      `https://smart-billing-system.onrender.com/api/staff/edit-staff/${id}`,
       data
     );
     return res.data;
@@ -36,7 +38,9 @@ export const editStaff = createAsyncThunk(
 
 // Async thunk to delete staff
 export const deleteStaff = createAsyncThunk("staff/deleteStaff", async (id) => {
-  await api.delete(`http://localhost:5000/api/staff/delete-staff/${id}`);
+  await api.delete(
+    `https://smart-billing-system.onrender.com/api/staff/delete-staff/${id}`
+  );
   return id;
 });
 

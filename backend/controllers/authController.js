@@ -7,6 +7,8 @@ const genToken = (id, role) =>
   jwt.sign({ id, role }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
 export const login = async (req, res) => {
+  console.log("login called");
+  
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
